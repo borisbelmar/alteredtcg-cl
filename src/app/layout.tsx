@@ -2,16 +2,38 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const workSans = localFont({
+  src: [
+    {
+      path: "./fonts/work-sans-v19-latin-regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "./fonts/work-sans-v19-latin-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/work-sans-v19-latin-300.woff2",
+      weight: "300"
+    },
+    {
+      path: "./fonts/work-sans-v19-latin-300italic.woff2",
+      weight: "300",
+      style: "italic"
+    },
+    {
+      path: "./fonts/work-sans-v19-latin-700.woff2",
+      weight: "700"
+    },
+    {
+      path: "./fonts/work-sans-v19-latin-700italic.woff2",
+      weight: "700",
+      style: "italic"
+    }
+  ],
+  variable: "--font-work-sans",
+})
 
 export const metadata: Metadata = {
   title: "Altered TCG Chile",
@@ -26,7 +48,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        className={`
+          ${workSans.variable} antialiased dark font-sans`}
       >
         {children}
       </body>
